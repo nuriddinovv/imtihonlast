@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div>Home</div>
+    <div className='container w-[80%] mx-auto'>
+      asdasd
+    </div>
   )
 }

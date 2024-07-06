@@ -1,7 +1,7 @@
 .nav {
   &_container {
     background: url("../../assets/navbar/bg-img.png");
-    height: 145px;
+    // height: 145px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -34,7 +34,7 @@
         ul .aboutlink:hover .aboutDropdown {
           display: block;
         }
-        ul li a{
+        ul li a {
           transition: 0.3s;
         }
         ul li a.active {
@@ -43,6 +43,43 @@
         }
         ul li a:hover {
           opacity: 0.7;
+        }
+      }
+    }
+  }
+  &_search {
+    height: 112px;
+
+    &_catalog {
+      button {
+        @include mainBtn;
+        gap: 8px;
+      }
+    }
+    &_input {
+      background-color: #f6f6f8;
+      border-radius: 26px;
+      border: 1px solid #e2e5e9;
+      input {
+        padding: 14px 24px;
+        font-size: 14px;
+        border-radius: 26px;
+        background-color: inherit;
+        outline: rgba(83, 83, 187, 0.359);
+      }
+      button {
+        @include mainBtn;
+      }
+    }
+  }
+  .menuModal {
+    background-color: rgba(0, 0, 0, 0.3);
+    &Content {
+      &Row {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        .card1{
+          background-color: #ededed;
         }
       }
     }

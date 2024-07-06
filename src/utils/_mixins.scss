@@ -1,0 +1,12 @@
+@mixin mainBtn {
+  padding: 14px 24px;
+  background: url("../assets/buttonbg.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 90px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
