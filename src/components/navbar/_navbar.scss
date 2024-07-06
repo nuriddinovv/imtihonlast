@@ -1,0 +1,50 @@
+.nav {
+  &_container {
+    background: url("../../assets/navbar/bg-img.png");
+    height: 145px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    &_content {
+      &_link {
+        .aboutDropdown {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: url("../../assets/navbar/bg-img.png");
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          min-width: 164px;
+          padding: 15px;
+          z-index: 999;
+          overflow-y: auto;
+          border-radius: 20px;
+          ul li {
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: 0.3s;
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.3);
+            }
+          }
+        }
+        ul .aboutlink:hover .aboutDropdown {
+          display: block;
+        }
+        ul li a{
+          transition: 0.3s;
+        }
+        ul li a.active {
+          border-bottom: 2px solid white;
+          padding-bottom: 3px;
+        }
+        ul li a:hover {
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

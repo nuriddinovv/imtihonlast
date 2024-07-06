@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import "./index.scss";
 import "./i18n";
 import MainLayout from "./layout/MainLayout";
 import Home from "./pages/homePage/Home";
@@ -25,6 +25,4 @@ const router = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-    <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);

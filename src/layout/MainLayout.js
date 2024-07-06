@@ -5,9 +5,11 @@ import { Outlet } from "react-router-dom";
 
 export default function MainLayout() {
   return (
-    <div>
+    <div className="">
       <Navbar />
-      <Outlet />
+      <div className="container max-w-[1440px] mx-auto">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

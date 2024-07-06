@@ -4,19 +4,43 @@ import { initReactI18next } from "react-i18next";
 const resources = {
   uz: {
     translation: {
-      "Welcome to React": "Welcome to React and react-i18next",
+      navbar: {
+        mainpage: "Asosiy sahifa",
+        catalog: "Katalog",
+        about: "Biz haqimizda",
+        news: "Yangiliklar",
+        blog: "Blog",
+        contacts: "Aloqa",
+        language: "UZB",
+        company: "Kompaniya",
+        winning: "Yutuqlar",
+        team: "Jamoa",
+        galery: "Galereya",
+      },
     },
   },
   ru: {
     translation: {
-      "Welcome to React": "Bienvenue à React et react-i18next",
+      navbar: {
+        mainpage: "Главная",
+        catalog: "Каталог",
+        about: "О нас",
+        news: "Новости",
+        blog: "Блог",
+        contacts: "Контакты",
+        language: "RU",
+        company: "Компания",
+        winning: "Достижения",
+        team: "Команда",
+        galery: "Галерея",
+      },
     },
   },
 };
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en",
+  lng: "uz", // default language
   interpolation: {
     escapeValue: false,
   },
