@@ -1,11 +1,13 @@
 .nav {
   &_container {
     background: url("../../assets/navbar/bg-img.png");
-    // height: 145px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     &_content {
+      .togglelang {
+        display: none;
+      }
       &_link {
         .aboutDropdown {
           display: none;
@@ -22,6 +24,9 @@
           z-index: 999;
           overflow-y: auto;
           border-radius: 20px;
+          ul .phonelogo {
+            display: none;
+          }
           ul li {
             padding: 8px 12px;
             border-radius: 20px;
@@ -43,6 +48,17 @@
         }
         ul li a:hover {
           opacity: 0.7;
+        }
+        &.open {
+          display: flex;
+          flex-direction: column;
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: white;
+          width: 100%;
+          height: 100vh;
+          z-index: 1000;
         }
       }
     }
@@ -78,8 +94,142 @@
       &Row {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        .card1{
+        .card1 {
           background-color: #ededed;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .menuModalContentRowRow {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .nav {
+    &_container {
+      &_content {
+        max-width: 90%;
+        font-size: 12px;
+      }
+    }
+    &_search {
+      max-width: 90%;
+    }
+  }
+}
+@media screen and (max-width: 930px) {
+  .menuModalContentRowRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .nav {
+    &_container {
+      &_content {
+        max-width: 95%;
+        font-size: 16px;
+        &_logo {
+          width: 200px;
+          height: 100px;
+        }
+        .togglelang {
+          display: flex;
+        }
+        &_link {
+          transition: all 0.3s;
+
+          height: 100vh;
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 400px;
+          box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+          ul li a.active {
+            color: blue;
+            font-weight: 700;
+          }
+          ul {
+            width: 400px;
+            flex-direction: column;
+            position: absolute;
+            align-items: start;
+            top: 0;
+            left: 0;
+            background-color: white;
+            color: black;
+            li {
+              padding-left: 1.5rem;
+            }
+            .langlist {
+              display: none;
+            }
+            .phonelogo {
+              display: block;
+              width: 100%;
+              height: 100px;
+              background: url("../../assets/navbar/bg-img.png");
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            }
+          }
+          .aboutDropdown {
+            display: block;
+            align-items: start;
+            background: none;
+            position: relative;
+            left: 0;
+            padding: 15px;
+            border-radius: 20px;
+            li {
+              padding: 8px 12px;
+              border-radius: 20px;
+              transition: 0.3s;
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.3);
+              }
+            }
+          }
+        }
+        &_link.openSider {
+          left: 0;
+        }
+      }
+    }
+    &_search {
+      max-width: 95%;
+    }
+    .menuModal {
+      &Content {
+        &Row {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          .card1 {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 596px) {
+  .nav {
+    &_container {
+      &_content {
+        &_link {
+          width: 250px;
+          ul {
+            width: 250px;
+          }
+        }
+      }
+    }
+    .menuModal {
+      &Content {
+        &Row {
+          display: grid;
+          grid-template-columns: 1fr;
+          .card1 {
+            width: 100%;
+          }
         }
       }
     }

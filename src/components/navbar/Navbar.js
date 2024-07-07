@@ -5,11 +5,13 @@ import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { FiSearch } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
+import { PiListBold, PiToggleLeftBold } from "react-icons/pi";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const [openMenuModal, setOpenMenuModal] = useState(false);
   const [modalData, setModalData] = useState();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "uz" ? "ru" : "uz";
@@ -39,51 +41,57 @@ export default function Navbar() {
             <Link to={"/"}>
               <img
                 src="https://ht-med.uz/_next/image?url=%2Fimg%2Flogo.png&w=384&q=75"
-                className="w-[270px]"
+                className="w-full h-full"
               />
             </Link>
           </div>
-          <div className="nav_container_content_link">
-            <ul className="flex gap-[20px] items-center">
+          <div
+            className={`nav_container_content_link ${
+              menuOpen ? "openSider" : ""
+            }`}
+          >
+            <div
+              className="sliderClose"
+              onClick={() => {
+                setMenuOpen(false);
+              }}
+            >
+              <span className="absolute cursor-pointer right-5 z-50 top-[115px] text-[26px] text-black">
+                <IoMdClose />
+              </span>
+            </div>
+            <ul className={`flex gap-[20px] items-center `}>
+              <div className="phonelogo hidden">
+                <Link to={"/"}>
+                  <img
+                    src="https://ht-med.uz/_next/image?url=%2Fimg%2Flogo.png&w=384&q=75"
+                    className="w-[200px] h-full px-[20px]"
+                  />
+                </Link>
+              </div>
               <li>
                 <NavLink to="/">{t("navbar.mainpage")}</NavLink>
               </li>
               <li>
                 <NavLink to="/catalog">{t("navbar.catalog")}</NavLink>
               </li>
-              <li className="relative flex aboutlink cursor-pointer items-center">
+              <li className="relative flex aboutlink cursor-pointer flex-col">
                 {t("navbar.about")}
-                <svg
-                  className="w-2.5 h-2.5 ms-3"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 10 6"
-                >
-                  <path
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="m1 1 4 4 4-4"
-                  />
-                </svg>
-                <div className="aboutDropdown">
-                  <ul>
-                    <li>
-                      <Link to={"/"}>{t("navbar.company")}</Link>
-                    </li>
-                    <li>
-                      <Link to={"/"}>{t("navbar.winning")}</Link>
-                    </li>
-                    <li>
-                      <Link to={"/"}>{t("navbar.team")}</Link>
-                    </li>
-                    <li>
-                      <Link to={"/"}>{t("navbar.galery")}</Link>
-                    </li>
-                  </ul>
-                </div>
+
+                <ul className="aboutDropdown">
+                  <li>
+                    <Link to={"/"}>{t("navbar.company")}</Link>
+                  </li>
+                  <li>
+                    <Link to={"/"}>{t("navbar.winning")}</Link>
+                  </li>
+                  <li>
+                    <Link to={"/"}>{t("navbar.team")}</Link>
+                  </li>
+                  <li>
+                    <Link to={"/"}>{t("navbar.galery")}</Link>
+                  </li>
+                </ul>
               </li>
               <li>
                 <NavLink to="/news">{t("navbar.news")}</NavLink>
@@ -96,7 +104,7 @@ export default function Navbar() {
               </li>
               <li
                 onClick={toggleLanguage}
-                className="cursor-pointer flex items-center gap-[0.5rem]"
+                className="cursor-pointer flex items-center gap-[0.5rem] langlist"
               >
                 <img
                   src={
@@ -109,6 +117,27 @@ export default function Navbar() {
                 {t("navbar.language")}
               </li>
             </ul>
+          </div>
+          <div className="cursor-pointer flex items-center gap-[1.5rem] togglelang">
+            <div className="flex items-center gap-[0.5rem]">
+              <img
+                src={
+                  i18n.language === "uz"
+                    ? "https://ht-med.uz/_next/image?url=%2Fimg%2Fuz.png&w=32&q=75"
+                    : "https://ht-med.uz/_next/image?url=%2Fimg%2Fru.png&w=32&q=75"
+                }
+                alt=""
+              />
+              {t("navbar.language")}
+            </div>
+            <span
+              className="text-[26px]"
+              onClick={() => {
+                setMenuOpen(true);
+              }}
+            >
+              <PiListBold />
+            </span>
           </div>
         </div>
       </div>
@@ -148,7 +177,7 @@ export default function Navbar() {
           onClick={() => {
             setOpenMenuModal(false);
           }}
-          className="menuModal absolute top-0 w-[100vw] h-[100vh] flex items-center justify-center z-50"
+          className="menuModal absolute top-0 w-[100%] h-[100%] flex items-center justify-center z-50 py-4"
         >
           <div
             onClick={(e) => e.stopPropagation()}
@@ -164,7 +193,7 @@ export default function Navbar() {
                 <IoMdClose />
               </span>
             </div>
-            <div className="menuModalContentRow gap-4">
+            <div className="menuModalContentRow overflow-y-scroll gap-4">
               {modalData?.map((item) => (
                 <div
                   key={item.id}
