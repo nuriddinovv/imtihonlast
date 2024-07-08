@@ -28,6 +28,9 @@ const resources = {
         partner: "Bizning Xalqaro hamkorlarimiz",
         comment: "Xaridorlarimiz fikri",
         contact: "Bog'lanish uchun ma'lumot",
+        cardtext: "Qulay narx siyosati",
+        cardp:
+          "Uskunalarimiz yuqori sifatga ega va boshqa kompanyalardan 25% arzon.",
       },
     },
   },

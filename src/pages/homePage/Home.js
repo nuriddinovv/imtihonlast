@@ -8,12 +8,19 @@ import { useNavigate } from "react-router-dom";
 export default function Home() {
   const navigate = useNavigate();
   const [bannerData, setBannerData] = useState();
+  const [category, setCategory] = useState();
   useEffect(() => {
     async function fetchData() {
       const data = await Resquet("https://admin.ht-med.uz/api/v1/banner-list/");
       setBannerData(data);
     }
-
+    async function category() {
+      const data = await Resquet(
+        "https://admin.ht-med.uz/api/v1/category-image-list/"
+      );
+      setCategory(data.results);
+    }
+    category();
     fetchData();
   }, []);
   return (
@@ -58,11 +65,50 @@ export default function Home() {
           <div
             className="home_cards_item flex items-center p-[25px] rounded-[40px] w-full bg-[#87B7FF]
           h-28"
-          ></div>
+          >
+            <div className="text"></div>
+            <img src="" alt="" />
+          </div>
           <div
             className="home_cards_item flex items-center p-[25px] rounded-[40px] w-full bg-[#BDFF00]
           h-28"
           ></div>
+        </div>
+        <div className="home_tools py-[66px]">
+          <div className="header flex items-center font-[700] text-[32px] mb-8">
+            <h3 className="w-auto mr-4">{t("home.tools")}</h3>
+            <span className="bg-[#292929] h-[2px] flex-grow"></span>
+          </div>
+          <div className="tools_card flex justify-center gap-[15px] flex-wrap">
+            {category?.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className="cursor-pointer hover:shadow-lg transition-all duration-300 toolCard p-[10px] bg-[#ededed] flex flex-col items-center rounded-[15px] gap-2 w-[225px]"
+                >
+                  <img className="w-[80px]" src={item.image} alt="" />
+                  <h3 className="font-[600] text-[16px]">{item.name}</h3>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="home_withus">
+          <div className="header flex items-center font-[700] text-[32px] mb-8">
+            <h3 className="w-auto mr-4">{t("home.withus")}</h3>
+            <span className="bg-[#292929] h-[2px] flex-grow"></span>
+          </div>
+          <div className="withus_card flex justify-center gap-[15px] flex-wrap">
+            <div className="card cursor-pointerhover:shadow-lg transition-all duration-300 p-[10px]  flex flex-col items-center rounded-[15px] gap-2">
+              <img
+                src="https://ht-med.uz/_next/image?url=%2Fcard_logo%2FLayer_1%20(2).png&w=96&q=75"
+                alt=""
+              />
+              <div className="text">
+                <h4>{t("home.cardtext")}</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
