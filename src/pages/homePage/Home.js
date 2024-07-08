@@ -5,10 +5,12 @@ import { Autoplay } from "swiper/modules";
 import { Resquet } from "../../components/axios/Axios";
 import { t } from "i18next";
 import { useNavigate } from "react-router-dom";
+
 export default function Home() {
   const navigate = useNavigate();
   const [bannerData, setBannerData] = useState();
   const [category, setCategory] = useState();
+
   useEffect(() => {
     async function fetchData() {
       const data = await Resquet("https://admin.ht-med.uz/api/v1/banner-list/");
@@ -23,6 +25,7 @@ export default function Home() {
     category();
     fetchData();
   }, []);
+
   return (
     <div className="home bg-gray-100">
       <div className="container w-[80%] mx-auto">
@@ -31,8 +34,8 @@ export default function Home() {
           spaceBetween={30}
           loop={true}
           autoplay={{
-            delay: 3000,
-            // disableOnInteraction: false,
+            delay: 2500,
+            disableOnInteraction: false,
           }}
           modules={[Autoplay]}
           className="mySwiper"
@@ -62,17 +65,11 @@ export default function Home() {
           })}
         </Swiper>
         <div className="home_cards flex justify-between items-center gap-5">
-          <div
-            className="home_cards_item flex items-center p-[25px] rounded-[40px] w-full bg-[#87B7FF]
-          h-28"
-          >
+          <div className="home_cards_item flex items-center p-[25px] rounded-[40px] w-full bg-[#87B7FF] h-28">
             <div className="text"></div>
             <img src="" alt="" />
           </div>
-          <div
-            className="home_cards_item flex items-center p-[25px] rounded-[40px] w-full bg-[#BDFF00]
-          h-28"
-          ></div>
+          <div className="home_cards_item flex items-center p-[25px] rounded-[40px] w-full bg-[#BDFF00] h-28"></div>
         </div>
         <div className="home_tools py-[66px]">
           <div className="header flex items-center font-[700] text-[32px] mb-8">
@@ -99,7 +96,7 @@ export default function Home() {
             <span className="bg-[#292929] h-[2px] flex-grow"></span>
           </div>
           <div className="withus_card flex justify-center gap-[15px] flex-wrap">
-            <div className="card cursor-pointerhover:shadow-lg transition-all duration-300 p-[10px]  flex flex-col items-center rounded-[15px] gap-2">
+            <div className="card cursor-pointer hover:shadow-lg transition-all duration-300 p-[10px]  flex flex-col items-center rounded-[15px] gap-2">
               <img
                 src="https://ht-med.uz/_next/image?url=%2Fcard_logo%2FLayer_1%20(2).png&w=96&q=75"
                 alt=""
