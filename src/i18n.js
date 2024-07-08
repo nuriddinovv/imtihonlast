@@ -18,6 +18,7 @@ const resources = {
         galery: "Galereya",
       },
       home: {
+        btn: "Batafsil",
         catalog: "Katalog",
         search: "Qidirish...",
         tools: "Uskunalar bo'limi",

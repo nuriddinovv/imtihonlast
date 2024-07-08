@@ -6,6 +6,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
 import { PiListBold, PiToggleLeftBold } from "react-icons/pi";
+import { Resquet } from "../axios/Axios";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -19,16 +20,12 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get(
-          "https://admin.ht-med.uz/api/v1/category-list/"
-        );
-        setModalData(result.data.results);
-      } catch (error) {
-        console.error("Error fetching data", error);
-      }
-    };
+    async function fetchData() {
+      const data = await Resquet(
+        "https://admin.ht-med.uz/api/v1/category-list/"
+      );
+      setModalData(data.results);
+    }
 
     fetchData();
   }, []);

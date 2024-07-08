@@ -7,9 +7,9 @@ export default function MainLayout() {
   return (
     <div className="">
       <Navbar />
-      <div className="container max-w-[1440px] mx-auto">
-        <Outlet />
-      </div>
+
+      <Outlet />
+
       <Footer />
     </div>
   );
