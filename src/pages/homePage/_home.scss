@@ -1,21 +1,70 @@
-.home {
-  &Slide {
-  }
-}
 @media screen and (max-width: 930px) {
   .home {
     .container {
+      width: 95%;
       .homeSlide {
         flex-direction: column-reverse;
-        .text{
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+        .text {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          h4 {
+            font-size: 18px;
+          }
+          p {
+            font-size: 14px;
+          }
         }
-        .img{
-            height: 300px;
+        .img {
+          height: 300px;
+        }
+      }
+      .home_cards {
+        flex-direction: column;
+        &_item {
+          .text {
+            h3 {
+              font-size: 14px;
+              width: 150px;
+            }
+            p {
+              font-size: 10px;
+            }
+            button {
+              font-size: 14px;
+            }
+          }
+          img {
+            width: 150px;
+          }
+        }
+      }
+      .home_tools {
+        .header {
+          font-size: 18px;
+          span {
+            display: none;
+          }
+        }
+        .tools_card {
+          .card {
+            width: 160px;
+          }
+        }
+      }
+      .home_withus {
+        .header {
+          font-size: 18px;
+          span {
+            display: none;
+          }
+          .withus_card {
+            .card {
+              width: 100%;
+            }
+          }
         }
       }
     }
