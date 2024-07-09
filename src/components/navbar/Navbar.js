@@ -5,18 +5,21 @@ import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { FiSearch } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import axios from "axios";
-import { PiListBold, PiToggleLeftBold } from "react-icons/pi";
+import { PiListBold } from "react-icons/pi";
 import { Resquet } from "../axios/Axios";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
   const [openMenuModal, setOpenMenuModal] = useState(false);
-  const [modalData, setModalData] = useState();
+  const [modalData, setModalData] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lang, setLang] = useState(localStorage.getItem("language") || "uz");
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "uz" ? "ru" : "uz";
     i18n.changeLanguage(newLang);
+    localStorage.setItem("language", newLang);
+    setLang(newLang);
   };
 
   useEffect(() => {
@@ -26,9 +29,8 @@ export default function Navbar() {
       );
       setModalData(data.results);
     }
-
     fetchData();
-  }, []);
+  }, [lang]);
 
   return (
     <div className="nav">
@@ -57,7 +59,7 @@ export default function Navbar() {
                 <IoMdClose />
               </span>
             </div>
-            <ul className={`flex gap-[20px] items-center `}>
+            <ul className={`flex gap-[20px] items-center`}>
               <div className="phonelogo hidden">
                 <Link to={"/"}>
                   <img
@@ -74,7 +76,6 @@ export default function Navbar() {
               </li>
               <li className="relative flex aboutlink cursor-pointer flex-col">
                 {t("navbar.about")}
-
                 <ul className="aboutDropdown">
                   <li>
                     <Link to={"/"}>{t("navbar.company")}</Link>
@@ -116,7 +117,10 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="cursor-pointer flex items-center gap-[1.5rem] togglelang">
-            <div className="flex items-center gap-[0.5rem]">
+            <div
+              onClick={toggleLanguage}
+              className="flex items-center gap-[0.5rem]"
+            >
               <img
                 src={
                   i18n.language === "uz"
@@ -152,7 +156,7 @@ export default function Navbar() {
         </div>
         <div className="nav_search_input w-full ">
           <form
-            className="flex "
+            className="flex"
             onSubmit={(e) => {
               e.preventDefault();
             }}
@@ -174,13 +178,13 @@ export default function Navbar() {
           onClick={() => {
             setOpenMenuModal(false);
           }}
-          className="menuModal absolute top-0 w-[100%] h-[100%] flex items-center justify-center z-50 py-4"
+          className="menuModal absolute top-0 w-[100%] h-[100%] flex items-center justify-center z-10 overflow-hidden py-4"
         >
           <div
             onClick={(e) => e.stopPropagation()}
             className="menuModalContent w-[80%] mx-auto bg-white rounded-lg px-[20px] py-[24px] z-50"
           >
-            <div className="menuModalContentHeader text-end ">
+            <div className="menuModalContentHeader text-end">
               <span
                 className="cursor-pointer flex justify-end mb-3 text-[24px]"
                 onClick={() => {
@@ -190,7 +194,7 @@ export default function Navbar() {
                 <IoMdClose />
               </span>
             </div>
-            <div className="menuModalContentRow overflow-y-scroll gap-4">
+            <div className="menuModalContentRow  gap-4">
               {modalData?.map((item) => (
                 <div
                   key={item.id}

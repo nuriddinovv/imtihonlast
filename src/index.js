@@ -6,6 +6,7 @@ import MainLayout from "./layout/MainLayout";
 import Home from "./pages/homePage/Home";
 import Contact from "./pages/contactPage/Contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Catalog from "./pages/catalogPage/Catalog";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "catalog",
+        element: <Catalog />,
       },
     ],
   },

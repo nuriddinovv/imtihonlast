@@ -1,0 +1,23 @@
+.home {
+  &Slide {
+  }
+}
+@media screen and (max-width: 930px) {
+  .home {
+    .container {
+      .homeSlide {
+        flex-direction: column-reverse;
+        .text{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .img{
+            height: 300px;
+        }
+      }
+    }
+  }
+}

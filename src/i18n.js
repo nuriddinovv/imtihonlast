@@ -1,6 +1,8 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+const savedLanguage = localStorage.getItem("language") || "ru";
+
 const resources = {
   uz: {
     translation: {
@@ -50,6 +52,7 @@ const resources = {
         galery: "Галерея",
       },
       home: {
+        btn: "Подробнее",
         catalog: "Каталог",
         search: "Поиск...",
         tools: "Раздел Инструменты",
@@ -59,6 +62,9 @@ const resources = {
         partner: "Наши международные партнеры",
         comment: "Отзывы клиентов",
         contact: "Контактная информация",
+        cardtext: "Удобная ценовая политика",
+        cardp:
+          "Наше оборудование высокого качества и на 25% дешевле, чем у других компаний.",
       },
     },
   },
@@ -66,7 +72,7 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "uz", // default language
+  lng: savedLanguage,
   interpolation: {
     escapeValue: false,
   },

@@ -91,6 +91,8 @@
   .menuModal {
     background-color: rgba(0, 0, 0, 0.3);
     &Content {
+      max-height: 80%;
+      overflow-y: scroll;
       &Row {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -102,9 +104,6 @@
   }
 }
 @media screen and (max-width: 1200px) {
-  .menuModalContentRowRow {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .nav {
     &_container {
       &_content {
@@ -115,12 +114,17 @@
     &_search {
       max-width: 90%;
     }
+    .menuModal {
+      &Content {
+        &Row {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
   }
 }
 @media screen and (max-width: 930px) {
-  .menuModalContentRowRow {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .nav {
     &_container {
       &_content {
