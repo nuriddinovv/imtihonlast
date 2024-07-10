@@ -42,6 +42,11 @@ const resources = {
         7: "Biz 1 yildan 3 yilgacha kafolat beramiz va kafolat muddati davomida biz 24 soat davomida bepul xizmat ko'rsatamiz.",
         8: "Mutaxassislarimiz siz bilan bog'lanib, uskunalar bo'yicha barcha savollarga javob berishadi.",
       },
+      search: {
+        sotuvda: "Omborda mavjud",
+        zakaz: "Buyurtma asosida",
+        noresult: "Xech narsa topilmadi...",
+      },
     },
   },
   ru: {
@@ -73,6 +78,11 @@ const resources = {
         cardtext: "Удобная ценовая политика",
         cardp:
           "Наше оборудование высокого качества и на 25% дешевле, чем у других компаний.",
+      },
+      search: {
+        sotuvda: "В наличии",
+        zakaz: "Под заказ",
+        noresult: "Ничего не найдено...",
       },
     },
   },
