@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { FiSearch } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
-import axios from "axios";
 import { PiListBold } from "react-icons/pi";
 import { Resquet } from "../axios/Axios";
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -14,6 +14,8 @@ export default function Navbar() {
   const [modalData, setModalData] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState(localStorage.getItem("language") || "uz");
+  let [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === "uz" ? "ru" : "uz";
@@ -22,12 +24,22 @@ export default function Navbar() {
     setLang(newLang);
   };
 
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (query) {
+      navigate(`/search?query=${query}`);
+      setQuery("");
+    }
+  };
+
   useEffect(() => {
     async function fetchData() {
-      const data = await Resquet(
-        "https://admin.ht-med.uz/api/v1/category-list/"
-      );
-      setModalData(data.results);
+      try {
+        const data = await Resquet("category-list/");
+        setModalData(data.results);
+      } catch (error) {
+        console.error("Error fetching category list", error);
+      }
     }
     fetchData();
   }, [lang]);
@@ -37,10 +49,11 @@ export default function Navbar() {
       <div className="nav_container mx-auto">
         <div className="nav_container_content max-w-[80%] mx-auto flex text-white justify-between items-center">
           <div className="nav_container_content_logo w-[270px] h-[145px] overflow-hidden flex justify-center items-center">
-            <Link to={"/"}>
+            <Link to="/">
               <img
                 src="https://ht-med.uz/_next/image?url=%2Fimg%2Flogo.png&w=384&q=75"
                 className="w-full h-full"
+                alt="Logo"
               />
             </Link>
           </div>
@@ -51,20 +64,21 @@ export default function Navbar() {
           >
             <div
               className="sliderClose"
-              onClick={() => {
-                setMenuOpen(false);
-              }}
+              onClick={() => setMenuOpen(false)}
+              role="button"
+              aria-label="Close menu"
             >
               <span className="absolute cursor-pointer right-5 z-50 top-[115px] text-[26px] text-black">
                 <IoMdClose />
               </span>
             </div>
-            <ul className={`flex gap-[20px] items-center`}>
+            <ul className="flex gap-[20px] items-center">
               <div className="phonelogo hidden">
-                <Link to={"/"}>
+                <Link to="/">
                   <img
                     src="https://ht-med.uz/_next/image?url=%2Fimg%2Flogo.png&w=384&q=75"
                     className="w-[200px] h-full px-[20px]"
+                    alt="Logo"
                   />
                 </Link>
               </div>
@@ -75,19 +89,24 @@ export default function Navbar() {
                 <NavLink to="/catalog">{t("navbar.catalog")}</NavLink>
               </li>
               <li className="relative flex aboutlink cursor-pointer flex-col">
-                {t("navbar.about")}
+                <p className="flex items-center">
+                  {t("navbar.about")}
+                  <span className="text-[32px]">
+                    <RiArrowDropDownLine />
+                  </span>
+                </p>
                 <ul className="aboutDropdown">
                   <li>
-                    <Link to={"/"}>{t("navbar.company")}</Link>
+                    <Link to="/">{t("navbar.company")}</Link>
                   </li>
                   <li>
-                    <Link to={"/"}>{t("navbar.winning")}</Link>
+                    <Link to="/">{t("navbar.winning")}</Link>
                   </li>
                   <li>
-                    <Link to={"/"}>{t("navbar.team")}</Link>
+                    <Link to="/">{t("navbar.team")}</Link>
                   </li>
                   <li>
-                    <Link to={"/"}>{t("navbar.galery")}</Link>
+                    <Link to="/">{t("navbar.galery")}</Link>
                   </li>
                 </ul>
               </li>
@@ -103,6 +122,8 @@ export default function Navbar() {
               <li
                 onClick={toggleLanguage}
                 className="cursor-pointer flex items-center gap-[0.5rem] langlist"
+                role="button"
+                aria-label="Toggle language"
               >
                 <img
                   src={
@@ -110,7 +131,7 @@ export default function Navbar() {
                       ? "https://ht-med.uz/_next/image?url=%2Fimg%2Fuz.png&w=32&q=75"
                       : "https://ht-med.uz/_next/image?url=%2Fimg%2Fru.png&w=32&q=75"
                   }
-                  alt=""
+                  alt={i18n.language === "uz" ? "Uzbek flag" : "Russian flag"}
                 />
                 {t("navbar.language")}
               </li>
@@ -120,6 +141,8 @@ export default function Navbar() {
             <div
               onClick={toggleLanguage}
               className="flex items-center gap-[0.5rem]"
+              role="button"
+              aria-label="Toggle language"
             >
               <img
                 src={
@@ -127,15 +150,15 @@ export default function Navbar() {
                     ? "https://ht-med.uz/_next/image?url=%2Fimg%2Fuz.png&w=32&q=75"
                     : "https://ht-med.uz/_next/image?url=%2Fimg%2Fru.png&w=32&q=75"
                 }
-                alt=""
+                alt={i18n.language === "uz" ? "Uzbek flag" : "Russian flag"}
               />
               {t("navbar.language")}
             </div>
             <span
               className="text-[26px]"
-              onClick={() => {
-                setMenuOpen(true);
-              }}
+              onClick={() => setMenuOpen(true)}
+              role="button"
+              aria-label="Open menu"
             >
               <PiListBold />
             </span>
@@ -146,27 +169,24 @@ export default function Navbar() {
         <div className="nav_search_catalog">
           <button
             className="font-[500]"
-            onClick={() => {
-              setOpenMenuModal(true);
-            }}
+            onClick={() => setOpenMenuModal(true)}
+            aria-label="Open catalog"
           >
             <HiMiniBars3BottomLeft />
             {t("home.catalog")}
           </button>
         </div>
-        <div className="nav_search_input w-full ">
-          <form
-            className="flex"
-            onSubmit={(e) => {
-              e.preventDefault();
-            }}
-          >
+        <div className="nav_search_input w-full">
+          <form className="flex" onSubmit={handleSearch}>
             <input
               className="w-full"
+              onChange={(e) => setQuery(e.target.value)}
+              value={query}
               placeholder={t("home.search")}
               type="text"
+              aria-label="Search input"
             />
-            <button>
+            <button aria-label="Search">
               <FiSearch />
             </button>
           </form>
@@ -175,9 +195,7 @@ export default function Navbar() {
 
       {openMenuModal && (
         <div
-          onClick={() => {
-            setOpenMenuModal(false);
-          }}
+          onClick={() => setOpenMenuModal(false)}
           className="menuModal absolute top-0 w-[100%] h-[100%] flex items-center justify-center z-10 overflow-hidden py-4"
         >
           <div
@@ -187,21 +205,23 @@ export default function Navbar() {
             <div className="menuModalContentHeader text-end">
               <span
                 className="cursor-pointer flex justify-end mb-3 text-[24px]"
-                onClick={() => {
-                  setOpenMenuModal(false);
-                }}
+                onClick={() => setOpenMenuModal(false)}
+                role="button"
+                aria-label="Close modal"
               >
                 <IoMdClose />
               </span>
             </div>
-            <div className="menuModalContentRow  gap-4">
+            <div className="menuModalContentRow gap-4">
               {modalData?.map((item) => (
                 <div
                   key={item.id}
                   className="card1 p-[20px] flex items-center justify-center gap-4 cursor-pointer rounded-[20px] hover:shadow-lg transition-all duration-500"
+                  role="button"
+                  aria-label={`Category: ${item.name}`}
                 >
                   <div className="w-[80px] h-[80px] overflow-hidden">
-                    <img src={item.image} className="w-full" alt="" />
+                    <img src={item.image} className="w-full" alt={item.name} />
                   </div>
                   <p className="flex text-center items-center font-[600]">
                     {item.name}

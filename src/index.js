@@ -7,6 +7,7 @@ import Home from "./pages/homePage/Home";
 import Contact from "./pages/contactPage/Contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Catalog from "./pages/catalogPage/Catalog";
+import Search from "./pages/searchPage/Search";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "catalog",
         element: <Catalog />,
+      },
+      {
+        path: "search",
+        element: <Search />,
       },
     ],
   },

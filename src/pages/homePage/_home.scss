@@ -1,5 +1,16 @@
 @media screen and (max-width: 930px) {
   .home {
+    .header {
+      font-size: 18px;
+      span {
+        display: none;
+      }
+      .withus_card {
+        .card {
+          width: 100%;
+        }
+      }
+    }
     .container {
       width: 95%;
       .homeSlide {
@@ -22,7 +33,7 @@
         }
       }
       .home_cards {
-        flex-direction: column;
+        grid-template-columns: 1fr;
         &_item {
           .text {
             h3 {
@@ -42,12 +53,6 @@
         }
       }
       .home_tools {
-        .header {
-          font-size: 18px;
-          span {
-            display: none;
-          }
-        }
         .tools_card {
           .card {
             width: 160px;
@@ -55,15 +60,9 @@
         }
       }
       .home_withus {
-        .header {
-          font-size: 18px;
-          span {
-            display: none;
-          }
-          .withus_card {
-            .card {
-              width: 100%;
-            }
+        .withus_card {
+          .card {
+            width: 100%;
           }
         }
       }
