@@ -61,6 +61,7 @@ export default function Home() {
   const filterdata = bannerData?.filter(
     (item) => item.id === 8 || item.id === 10
   );
+  console.log(filterdata);
   return (
     <div className="home bg-gray-100">
       <div className="container w-[80%] mx-auto">
@@ -229,123 +230,139 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="home_work">
+        <div className="home_work min-h-[800px] hidden 2xl:block">
           <div className="header flex items-center font-[700] text-[32px] mb-8">
             <h3 className="w-auto mr-4 my-6">{i18n.t("home.work")}</h3>
             <span className="bg-[#292929] h-[2px] flex-grow"></span>
           </div>
-          <div className="worksection grid grid-cols-4 gap-[60px] p-3">
+          <div className="worksection  relative justify-center ml-[100px] flex flex-wrap p-3">
             <div
-              className="h-[360px]  p-[20px]"
+              className="h-[360px] w-[225px] absolute top-0 left-0 pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
               style={{
                 background: `url(${tobottom})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundSize: "contain",
               }}
             >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                1
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.1")}</p>
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
+                  1
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.1")}</p>
+              </div>
             </div>
             <div
-              className="h-[360px]  p-[20px]"
-              style={{
-                background: `url(${tobottom})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-            >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                4
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.4")}</p>
-            </div>
-            <div
-              className="h-[360px]  p-[20px]"
-              style={{
-                background: `url(${tobottom})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-            >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                5
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.5")}</p>
-            </div>
-            <div
-              className="h-[360px]  p-[20px]"
-              style={{
-                background: `url(${tobottom})`,
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-            >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                8
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.8")}</p>
-            </div>
-            <div
-              className="h-[360px]  p-[20px]"
+              className="h-[360px]  absolute w-[255px] top-[330px] left-0 pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
               style={{
                 background: `url(${toright})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundSize: "contain",
               }}
             >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                2
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.2")}</p>
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] mt-3 font-sans mb-3 font-extrabold text-center">
+                  2
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.2")}</p>
+              </div>
             </div>
             <div
-              className="h-[360px]  p-[20px]"
+              className="h-[360px]  absolute w-[225px] top-[310px] left-[255px] pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
+              style={{
+                background: `url(${totop})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+              }}
+            >
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] mt-6 font-sans mb-3 font-extrabold text-center">
+                  3
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.3")}</p>
+              </div>
+            </div>
+            <div
+              className="h-[360px]  absolute w-[265px] top-[-15px] left-[255px] pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
+              style={{
+                background: `url(${toright})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "100%",
+              }}
+            >
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] mt-6 font-sans mb-3 font-extrabold text-center">
+                  4
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.4")}</p>
+              </div>
+            </div>
+            <div
+              className="h-[360px] w-[225px] absolute top-0 left-[520px] pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
               style={{
                 background: `url(${tobottom})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundSize: "contain",
               }}
             >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                3
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.3")}</p>
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
+                  5
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.5")}</p>
+              </div>
             </div>
             <div
-              className="h-[360px]  p-[20px]"
+              className="h-[360px]  absolute w-[255px] top-[330px] left-[520px] pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
               style={{
-                background: `url(${tobottom})`,
+                background: `url(${toright})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundSize: "contain",
               }}
             >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                6
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.6")}</p>
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] mt-3 font-sans mb-3 font-extrabold text-center">
+                  6
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.6")}</p>
+              </div>
             </div>
             <div
-              className="h-[360px]  p-[20px]"
+              className="h-[360px]  absolute w-[225px] top-[310px] left-[775px] pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
               style={{
-                background: `url(${tobottom})`,
+                background: `url(${totop})`,
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
+                backgroundSize: "contain",
               }}
             >
-              <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
-                7
-              </h1>
-              <p className="text-center text-[14px]">{i18n.t("home.7")}</p>
+              <div className="contentwork w-[175px]">
+                <h1 className="text-[64px] mt-6 font-sans mb-3 font-extrabold text-center">
+                  7
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.7")}</p>
+              </div>
+            </div>
+            <div
+              className="h-[360px] w-[225px] absolute top-[-20px] left-[775px] pt-[29px] pr-[30px] pb-[55px] pl-[20px]"
+              style={{
+                background: `url(${end})`,
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+              }}
+            >
+              <div className="contentwork w-[175px] mt-6">
+                <h1 className="text-[64px] font-sans mb-3 font-extrabold text-center">
+                  8
+                </h1>
+                <p className="text-center text-[14px]">{i18n.t("home.8")}</p>
+              </div>
             </div>
           </div>
         </div>
@@ -379,9 +396,7 @@ export default function Home() {
             <h3 className="w-auto mr-4 my-6">{i18n.t("home.contact")}</h3>
             <span className="bg-[#292929] h-[2px] flex-grow"></span>
           </div>
-          <div className="contact_about w-[631px]">
-
-          </div>
+          <div className="contact_about w-[631px]"></div>
           <div className="contact_message"></div>
           <iframe
             className="rounded-[25px]"
