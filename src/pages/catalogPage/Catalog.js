@@ -5,9 +5,10 @@ import { Resquet } from "../../components/axios/Axios";
 import Spinner from "../../components/spinner/Spinner";
 import { Link, NavLink } from "react-router-dom";
 import Card from "../../components/searchCard/Card";
+import i18n from "../../i18n";
 
 export default function Catalog() {
-  const [lang, setLang] = useState(localStorage.getItem("language") || "uz");
+  const lang = localStorage.getItem("language") || "uz";
   const [data, setData] = useState([]);
   const [cardData, setCardData] = useState();
   const [loader, setLoader] = useState(true);
@@ -37,7 +38,7 @@ export default function Catalog() {
     }
     fetchData();
     cardData();
-  }, [lang]);
+  }, [i18n.language]);
   console.log(data);
   return (
     <div className="w-[80%] mx-auto flex gap-6 catalog">
@@ -87,7 +88,7 @@ export default function Catalog() {
           <div>Ma'lumotlar topilmadi</div>
         )}
       </div>
-      <div className=" grid grid-cols-3 gap-5">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {cardData?.map((item) => {
           return (
             <Card
