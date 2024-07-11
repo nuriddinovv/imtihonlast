@@ -13,10 +13,15 @@ export default function Card({ image, title, status }) {
             <span className=" w-[10px] h-[10px] rounded-full bg-green-500 "></span>
             {t("search.sotuvda")}
           </p>
-        ) : (
+        ) : status === "buyurtma_uchun" ? (
           <p className="flex gap-2 text-[12px] text-gray-00 items-center">
             <span className=" w-[10px] h-[10px] rounded-full bg-blue-500"></span>
             {t("search.zakaz")}
+          </p>
+        ) : (
+          <p className="flex gap-2 text-[12px] text-gray-00 items-center">
+            <span className=" w-[10px] h-[10px] rounded-full bg-[#ffb649]"></span>
+            {t("search.noitem")}
           </p>
         )}
       </div>
