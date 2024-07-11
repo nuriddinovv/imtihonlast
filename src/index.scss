@@ -16,3 +16,15 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+
+::-webkit-scrollbar {
+  display: flex;
+  width: 5px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb{
+  background: #8c8c8c;
+}
+::-webkit-scrollbar-track{
+  background: #ffff;
+}
