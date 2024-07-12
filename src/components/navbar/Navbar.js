@@ -28,7 +28,7 @@ export default function Navbar() {
     e.preventDefault();
     if (query) {
       navigate(`/search?query=${query}`);
-      setQuery("");
+      setQuery(""); 
     }
   };
 
@@ -117,7 +117,7 @@ export default function Navbar() {
                 <NavLink to="/blog">{t("navbar.blog")}</NavLink>
               </li>
               <li>
-                <NavLink to="/contacts">{t("navbar.contacts")}</NavLink>
+                <NavLink to="/contact">{t("navbar.contacts")}</NavLink>
               </li>
               <li
                 onClick={toggleLanguage}

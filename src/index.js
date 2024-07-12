@@ -8,6 +8,8 @@ import Contact from "./pages/contactPage/Contact";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Catalog from "./pages/catalogPage/Catalog";
 import Search from "./pages/searchPage/Search";
+import News from "./pages/newsPage/News";
+import Blog from "./pages/blogPage/Blog";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "search",
         element: <Search />,
+      },
+      {
+        path: "news",
+        element: <News />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
     ],
   },
