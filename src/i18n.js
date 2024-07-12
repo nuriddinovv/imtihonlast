@@ -31,7 +31,8 @@ const resources = {
         comment: "Xaridorlarimiz fikri",
         contact: "Bog'lanish uchun ma'lumot",
         cardtext: "Qulay narx siyosati",
-        cardp: "Uskunalarimiz yuqori sifatga ega va boshqa kompanyalardan 25% arzon.",
+        cardp:
+          "Uskunalarimiz yuqori sifatga ega va boshqa kompanyalardan 25% arzon.",
         1: "Siz kerakli uskunalar uchun ariza topshirasiz.",
         2: "Mutaxassislarimiz siz bilan bog'lanib, uskunalar bo'yicha barcha savollarga javob berishadi.",
         3: "Uskunaning mezonlari va talab qilinadigan texnik xususiyatlaridan kelib chiqib, biz maxsus tijorat taklifini tuzamiz.",
@@ -41,7 +42,8 @@ const resources = {
         7: "Biz 1 yildan 3 yilgacha kafolat beramiz va kafolat muddati davomida biz 24 soat davomida bepul xizmat ko'rsatamiz.",
         8: "Mutaxassislarimiz siz bilan bog'lanib, uskunalar bo'yicha barcha savollarga javob berishadi.",
         address: "Manzil",
-        address1: "Toshkent shahar, Sergeli tumani, Qumariq MFY, pos.Gagarina ko'chasi, 26-2-uy.",
+        address1:
+          "Toshkent shahar, Sergeli tumani, Qumariq MFY, pos.Gagarina ko'chasi, 26-2-uy.",
         mail: "Elektron pochta",
         phoneNum: "Telefon raqam",
         contactus: "Biz bilan bog'lanish",
@@ -59,7 +61,8 @@ const resources = {
         noresult: "Xech narsa topilmadi...",
       },
       footer: {
-        title: "Kompaniyaning maqsadi sifatli tibbiy uskunalar bilan aholini ta'minlash va sog'lom, kelajak yaratish.",
+        title:
+          "Kompaniyaning maqsadi sifatli tibbiy uskunalar bilan aholini ta'minlash va sog'lom, kelajak yaratish.",
         support: "Qo'llab-quvvatlash xizmati",
         menu: "Menyu",
         mainpage: "Asosiy sahifa",
@@ -73,7 +76,11 @@ const resources = {
         team: "Jamoa",
         galery: "Galereya",
         newstext: "Foydali yangiliklar",
-        newsp: "Barcha yangiliklardan xabardor bo'lish uchun ijtimoiy tarmoqlarimizga obuna bo'ling",
+        newsp:
+          "Barcha yangiliklardan xabardor bo'lish uchun ijtimoiy tarmoqlarimizga obuna bo'ling",
+      },
+      news: {
+        title: "Yangiliklar",
       },
     },
   },
@@ -104,7 +111,8 @@ const resources = {
         comment: "Отзывы от наших клиентов",
         contact: "Контактная информация",
         cardtext: "Удобная ценовая политика",
-        cardp: "Наше оборудование высокого качества и на 25% дешевле, чем у других компаний.",
+        cardp:
+          "Наше оборудование высокого качества и на 25% дешевле, чем у других компаний.",
         1: "Вы подаете заявку на необходимое оборудование.",
         2: "Наши специалисты свяжутся с вами и ответят на все вопросы по оборудованию.",
         3: "Исходя из критериев оборудования и необходимых технических характеристик, мы составим специальное коммерческое предложение.",
@@ -114,7 +122,8 @@ const resources = {
         7: "Мы предоставляем гарантию от 1 до 3 лет и в течение гарантийного срока мы предоставляем бесплатное обслуживание в течение 24 часов.",
         8: "Наши специалисты свяжутся с вами и ответят на все вопросы по оборудованию.",
         address: "Адрес",
-        address1: "г. Ташкент, Сергели район, Кума-рык МФЙ, ул. Гагарина, дом 26-2.",
+        address1:
+          "г. Ташкент, Сергели район, Кума-рык МФЙ, ул. Гагарина, дом 26-2.",
         mail: "Электронная почта",
         phoneNum: "Номер телефона",
         contactus: "Связаться с нами",
@@ -132,7 +141,8 @@ const resources = {
         noresult: "Ничего не найдено...",
       },
       footer: {
-        title: "Цель компании - обеспечить население качественным медицинским оборудованием и создать здоровое будущее.",
+        title:
+          "Цель компании - обеспечить население качественным медицинским оборудованием и создать здоровое будущее.",
         support: "Служба поддержки",
         menu: "Меню",
         mainpage: "Главная",
@@ -146,7 +156,11 @@ const resources = {
         team: "Команда",
         galery: "Галерея",
         newstext: "Полезные новости",
-        newsp: "Подписывайтесь на наши социальные сети, чтобы быть в курсе всех новостей",
+        newsp:
+          "Подписывайтесь на наши социальные сети, чтобы быть в курсе всех новостей",
+      },
+      news: {
+        title: "Yangiliklar",
       },
     },
   },
